@@ -44,3 +44,10 @@ jobs:
         with:
           name: java-tomcat-app
           path: target/*.jar
+
+ 
+ # Step 6: Trigger Jenkins Pipeline
+      - name: Trigger Jenkins Pipeline
+        run: |
+          curl -X POST "http://admin:${{ secrets.JENKINS_API_TOKEN }}@localhost:8080/job/my-cicd-pipeline/build?token=my-trigger-token"
+
